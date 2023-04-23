@@ -1,0 +1,140 @@
+body{
+  font-family: 'Montserrat', sans-serif;
+  background-color:#B2AC88;
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 30px;
+  padding-left:15px
+  padding-right: 15px;
+  display: inline;
+}
+
+nav{
+  display: flex;
+  justify-content: center;
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  padding: .5%;
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+article{
+  padding-left: 15px;
+  padding-right:15px;
+  padding-top:10px;
+  padding-bottom:10px;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #728754;
+  color: white;
+  border-radius:10px;
+}
+
+.logo{
+  display: flex;
+  justify-content: flex-start;
+  height: 75px;
+  width: 175px;
+  background-color: white;
+  padding-top:2.5px;
+  padding-left:2.5px;
+  padding-right:2.5px;
+  padding-bottom:15px;
+  margin: 5px;
+  display: inline;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+  font-size:85%;
+}
+
+article :hover{
+  background-color: #B2AC88;
+  color: white; 
+  border-radius: 5px;
+}
+
+.polaroid{
+  display: flex;
+  justify-content: space-evenly;
+  align-items:stretch;
+  margin: auto;
+  width: 250px;
+  height:300px;
+  object-fit:cover;
+  background-color:white;
+  padding-top:15px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom:60px;
+} 
+
+
+.header {
+  display:inline;
+  display: flex;
+  
+}
+
+.images{
+  display: flex;
+  justify-content: space-evenly; 
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.subheading{
+  display: block;
+}
+
+.recommendedpage{
+  display:flex;
+  justify-content:flex-end;
+  
+}
+
+
+body {
+  animation: colorchange 20s infinite; 
+}
+
+@keyframes colorchange
+{
+  0%   {background: #68986c;}
+  25%  {background: #68986c}
+  50%  {background: #68986c;}
+  75%  {background: #68986c;}
+  100% {background: #68986c;}
+}
+
+button {
+  padding-left:70px;
+  padding-right:70px;
+  padding-top:15px;
+  padding-bottom:15px;
+  background-color: #d3d3d3;
+  font-family:'Montserrat', sans-serif;
+  font-size: 17px;
+  border-radius:10px;
+}
+
+figcaption {
+  border: 1px solid #d3d3d3;
+  background-color:#d3d3d3;
+  border-radius:10px;
+  padding:-10px;
+  color:black;
+  margin-top: 0;
+}
+
+button:hover {
+  background-color: #949494;
+ 
+}

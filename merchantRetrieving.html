@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Merchant Data Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
+</head>
+
+<body>
+  <h1>Merchant Data Graph</h1>
+  <canvas id="myChart"></canvas>
+  <script>
+    // Replace YOUR_API_KEY with your actual Nessie API key
+    const apiKey = "4d3654e51835412c1560ef404b2c8e55";
+
+    var request = require('superagent');
+    request.get('api.nessieisreal.com/customers?key=' + apiKey).then(response => {
+      const merchants = response.data;
+      const merchantNames = merchants.map(m => m.name);
+      const merchantSpends = merchants.map(m => m.spending);
+
+      /*		axios.get("api.nessieisreal.com/customers?key=4d3654e51835412c1560ef404b2c8e55")
+            .then(response => {
+              const merchants = response.data;
+              const merchantNames = merchants.map(m => m.name);
+              const merchantSpends = merchants.map(m => m.spending);*/
+
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: merchantNames,
+          datasets: [{
+            label: 'Merchant Spending',
+            data: merchantSpends,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    })
+      .catch(error => {
+        console.error(error);
+      });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>repl.it</title>
+  <link href="SignIn.css" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+      A {
+        text-decoration: none;
+      }
+
+      canvas {
+        width: 10px;
+        height: 10px;
+      }
+
+      #monthlyExpensesPieChart {
+        width: 10%;
+        height: 10%;
+        margin-left: 500;
+        margin-right: 500;
+      }
+
+      #yearlyBudgetStackedBarChart {
+        width: 10%;
+        height: 10%;
+        margin-left: 500;
+        margin-right: 500;
+      }
+
+      #dailyExpensesLineChart {
+        width: 10%;
+        height: 10%;
+        margin-left: 500;
+        margin-right: 500;
+      }
+    </style>
+</head>
+
+<div class="container">
+  <a href="index.html">
+    <img class="logo" src="./images/logo.png">
+  </a>
+</div>
+<h1> Statistics </h1>
+<h2>Monthly Expenses</h2>
+<h3>These are average montly expenses as collected from student data to help make students more aware of their spending.
+</h3>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<body>
+  <canvas id="monthlyExpensesPieChart" width="10" height="10"></canvas>
+  <script>
+    var canvas = document.getElementById('monthlyExpensesPieChart');
+    canvas.width = 10;
+    canvas.height = 5;
+    var data = {
+      labels: ['Housing', 'Food', 'Transportation', 'Entertainment', 'Other'],
+      datasets: [{
+        data: [30, 20, 15, 10, 25],
+        backgroundColor: ['#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850']
+      }]
+    };
+    var options = {
+      title: {
+        display: true,
+        text: 'Monthly Expenses Pie Chart'
+      }
+      /*responsive: true,
+      maintainAspectRatio: false,
+      height: 50, // set the height of the chart
+      width: 50*/
+    };
+    var monthlyExpensesPieChart = new Chart(canvas, {
+      type: 'pie',
+      data: data,
+      options: options
+    });
+  </script>
+</body>
+
+
+<h2>Yearly Budgeting</h2>
+<h3>This chart helps make students aware of their yearly spending.</h3>
+
+<body>
+  <canvas id="yearlyBudgetStackedBarChart" width="100" height="100"></canvas>
+  <script>
+    var canvas = document.getElementById('yearlyBudgetStackedBarChart');
+    var data = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      datasets: [{
+        label: 'Income',
+        data: [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000],
+        backgroundColor: '#3e95cd'
+      }, {
+        label: 'Expenses',
+        data: [-2000, -1500, -1500, -1000, -2000, -1500, -1500, -1000, -2000, -1500, -1500, -1000],
+        backgroundColor: '#c45850'
+      }]
+    };
+    var options = {
+      title: {
+        display: true,
+        text: 'Yearly Budget Stacked Bar Chart'
+      },
+      scales: {
+        xAxes: [{
+          stacked: true
+        }],
+        yAxes: [{
+          stacked: true,
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    };
+    var yearlyBudgetStackedBarChart = new Chart(canvas, {
+      type: 'bar',
+      data: data,
+      options: options
+    });
+  </script>
+</body>
+<h2>Daily Expenses</h2>
+<h3>These are daily expenses to help give students insights on where they are going wrong in life.
+</h3>
+
+<body>
+  <canvas id="dailyExpensesLineChart" width="100" height="100"></canvas>
+  <script>
+    var canvas = document.getElementById('dailyExpensesLineChart');
+    var data = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Food',
+        data: [50, 30, 70, 40, 60, 50, 80],
+        borderColor: '#088F8F',
+        fill: false
+      },
+      {
+        label: 'Entertainment',
+        data: [10, 5, 20, 45, 2, 75, 70],
+        borderColor: '#097969',
+        fill: false
+      },
+      {
+        label: 'School supplies',
+        data: [30, 25, 40, 22, 8, 17, 15],
+        borderColor: '#008080',
+        fill: false
+      }]
+    };
+    var options = {
+      title: {
+        display: true,
+        text: 'Daily Expenses Line Chart'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    };
+    var dailyExpensesLineChart = new Chart(canvas, {
+      type: 'line',
+      data: data,
+      options: options
+    });
+  </script>
+</body>
+
+</html>
